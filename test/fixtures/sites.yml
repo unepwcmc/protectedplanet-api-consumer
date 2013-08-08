@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lat: 1.5
+  lng: 1.5
+  radius: 1
+  type: 1
+
+two:
+  lat: 1.5
+  lng: 1.5
+  radius: 1
+  type: 1
