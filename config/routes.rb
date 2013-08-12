@@ -1,6 +1,5 @@
-ProtectedPlanet::Application.routes.draw do
-  resources:sites
-
+Webpage::Application.routes.draw do
+  get "sites/search_by_point"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

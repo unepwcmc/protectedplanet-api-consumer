@@ -3,8 +3,8 @@ class CreateSites < ActiveRecord::Migration
     create_table :sites do |t|
       t.float :lat
       t.float :lng
+      t.string :type
       t.integer :radius
-      t.integer :type
 
       t.timestamps
     end

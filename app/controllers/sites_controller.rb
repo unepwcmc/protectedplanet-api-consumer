@@ -1,9 +1,8 @@
 class SitesController < ApplicationController
 
-
 def search_by_point
-	params = { :lat => 50, :lng => 20, :radius => 200.0, :type => "official", :id => 1 }
-if params[:lat] && params[:lng]
+params = { :lat => 50, :lng => 20, :radius => 200.0, :type => "official", :id => 1 }
+  if params[:lat] && params[:lng]
     params[:radius] ||= 200.0
     geo = []
     geo << params[:lat].to_f * Math::PI/180
@@ -24,9 +23,10 @@ if params[:lat] && params[:lng]
     end
 
     render :json => @json.to_json
-	puts "Both strings are empty" if json.empty?
-	
   end
 end
+
+
+
 
 end

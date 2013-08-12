@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ProtectedPlanet::Application.load_tasks
+Webpage::Application.load_tasks

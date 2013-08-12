@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806142815) do
+ActiveRecord::Schema.define(version: 20130806143826) do
 
   create_table "sites", force: true do |t|
     t.float    "lat"
     t.float    "lng"
+    t.string   "type"
     t.integer  "radius"
-    t.integer  "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
