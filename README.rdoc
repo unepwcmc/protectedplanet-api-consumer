@@ -5,6 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
+* algo comabio
 * Ruby version
 
 * System dependencies
