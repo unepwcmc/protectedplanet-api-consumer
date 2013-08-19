@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'httparty'
+gem 'pry', group: [:development]
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

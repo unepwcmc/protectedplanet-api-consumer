@@ -1,13 +1,22 @@
 
-<form>
-  <fieldset>
-    <legend>Introduce a place to search:</legend>
-    Search: <input type="text"><br>
-    </fieldset>
-</form>
+
+	
 
 
-<% @results1.each do |result| %>
+
+<%= form_tag("/index", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
+
+
+
+
+<% @search_result.each do |result| %>
 
   <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
   <br/>
