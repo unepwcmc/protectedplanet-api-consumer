@@ -7,7 +7,7 @@
 </form>
 
 
-<% @results1.each do |result| %>
+<% @search_results.each do |result| %>
 
   <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
   <br/>
