@@ -1,28 +1,12 @@
 
-
-	
-
-
-
-<%= form_tag("/index", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+<%= form_tag({:controller => "sites", :action => "index"}, :method => "get") do %>
+   <%= label_tag "Lugar", "Place" %>
+   <%= text_field_tag "codigo", "Popayan", :size => 5, :maxlenght => 5, :placeholder => "place to search", :required => "required" %>
+   <br />
+   <%= submit_tag "Enviar" %>
 <% end %>
 
-
-
-
-
-
-
-<% @search_result.each do |result| %>
-
-  <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
-  <br/>
-
+<% @search_results.each do |result| %>
+	<%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
+	<br/>
 <% end %>
-
-
-
-
