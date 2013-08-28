@@ -1,12 +1,14 @@
 
+<div id= "container1">
 <%= form_tag({:controller => "sites", :action => "index"}, :method => "get") do %>
-   <%= label_tag "Lugar", "Place" %>
-   <%= text_field_tag "codigo", "Popayan", :size => 5, :maxlenght => 5, :placeholder => "place to search", :required => "required" %>
+   <%= label_tag "Lugar", "Discover the most amazing protected areas!" %>
+   <%= text_field_tag "codigo", "", :size => 20, :maxlenght => 20, :placeholder => "Introduce a place to search" %>
    <br />
-   <%= submit_tag "Enviar" %>
+   <%= submit_tag "Search" %>
 <% end %>
 
 <% @search_results.each do |result| %>
-	<%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
-	<br/>
-<% end %>
+  <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
+  <br/>
+ <% end %>
+</div>
