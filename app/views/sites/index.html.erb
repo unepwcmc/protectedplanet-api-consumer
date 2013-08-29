@@ -4,7 +4,7 @@
    <%= label_tag "Lugar", "Discover the most amazing protected areas!" %>
    <%= text_field_tag "codigo", "", :size => 20, :maxlenght => 20, :placeholder => "Introduce a place to search" %>
    <br />
-   <%= submit_tag "Search" %>
+   <%= submit_tag "Search", class: "btn btn-small btn-primary" %>
 <% end %>
 
 <% @search_results.each do |result| %>
