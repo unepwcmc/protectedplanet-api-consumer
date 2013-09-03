@@ -4,7 +4,9 @@ class SitesController < ApplicationController
   require 'PPApi'
  
   def index
-    response = HTTParty.get("http://maps.googleapis.com/maps/api/geocode/json?address=Quito&sensor=false")
+
+    if params[:codigo].present?
+    response = HTTParty.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:codigo]}&sensor=false")
     @response_body = response
     results = response["results"].first
     geometry = results["geometry"]
@@ -12,5 +14,10 @@ class SitesController < ApplicationController
     lat = location["lat"].to_i
     lng = location["lng"].to_i
     @search_results=PPApi.search_result(lat,lng)
+
+    else
+     @search_results = []
+    end
   end
 end
+

@@ -1,16 +1,47 @@
 
-<form>
-	<fieldset>
-  	<legend>Introduce a place to search:</legend>
-    	Search: <input type="text"><br>
-  </fieldset>
-</form>
+<div class="center hero-unit">
+<%= form_tag({:controller => "sites", :action => "index"}, :method => "get") do %>
+   <%= label_tag "Lugar", "Discover the most amazing protected areas!" %>
+   <%= text_field_tag "codigo", "", :size => 20, :maxlenght => 20, :placeholder => "Introduce a place to search", :required => "required" %>
+   <br />
+   <%= submit_tag "Search", class: "btn btn-small btn-primary" %>
 
-<% @search_results.each do |result| %>
-	<%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
-	<br/>
 <% end %>
 
+<% if false %>
+<% @search_results.each do |result| %>
+  <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
+  
+ <% end %>
+ <% end %>
+</div>
 
-
-
+<div id= "table-results">
+ <table class="table table-striped" align="center">  
+        <thead>  
+          <tr>  
+            <%-# <th>Protected Area</th> -%> 
+            <%-# <th>Rating</th> -%>
+              
+          </tr>  
+        </thead>  
+        <tbody> 
+        <% @search_results.each do |result| %> 
+          <tr>            
+            <td> <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %></td> 
+          <% if false %>
+            <td>
+              <div class="ec-stars-wrapper">
+                <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
+                <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
+                <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
+                <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
+                <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
+              </div>
+            </td>
+          <% end %>  
+        <% end %>  
+          </tr>  
+        </tbody>  
+      </table>  
+</div>
