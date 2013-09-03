@@ -13,7 +13,7 @@ class SitesController < ApplicationController
     lat = location["lat"].to_i
     lng = location["lng"].to_i
     @search_results=PPApi.search_result(lat,lng)
-    puts @search_results
+    #puts @search_results
     else
      @search_results = []
     end
