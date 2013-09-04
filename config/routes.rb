@@ -1,4 +1,5 @@
 Webpage::Application.routes.draw do
+  root "sitesController#index"
   get "sites/index"
   
   # The priority is based upon order of creation: first created -> highest priority.
