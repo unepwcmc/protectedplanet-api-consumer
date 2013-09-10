@@ -19,5 +19,9 @@ class SitesController < ApplicationController
      @search_results = []
     end
   end
+
+  def show
+    @url = params[:url]
+  end
 end
 

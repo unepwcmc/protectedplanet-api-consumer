@@ -7,14 +7,15 @@ gem 'bootstrap-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+gem 'jquery-rails'
+gem 'fancybox-rails'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "sqlite3"
 end
 
 group :production, :staging do
-  gem "pg"
+  gem "pg", '~>0.14.1'
 end
 
 

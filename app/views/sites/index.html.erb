@@ -8,12 +8,12 @@
 
 <% end %>
 
-<% if false %>
-<% @search_results.each do |result| %>
-  <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
+<%# if false %>
+<%# @search_results.each do |result| %>
+  <%#= link_to result["official"]["NAME"],:controller => "sites", :action => "show",url: "http://en.wikipedia.org/wiki/#{result["official"]["NAME"]}" %>
   
- <% end %>
- <% end %>
+ <%# end %>
+<%# end %>
 </div>
 
 <div id= "table-results">
@@ -28,7 +28,11 @@
         <tbody> 
         <% @search_results.each do |result| %> 
           <tr>            
-            <td> <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %></td> 
+            <td> 
+            <%= link_to result["official"]["NAME"], :controller => "sites", :action => "show",url: "http://en.wikipedia.org/wiki/#{result["official"]["NAME"]}" %>
+            
+            </td> 
+            
           <% if false %>
             <td>
               <div class="ec-stars-wrapper">
@@ -39,9 +43,10 @@
                 <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
               </div>
             </td>
+          </tr>
           <% end %>  
         <% end %>  
-          </tr>  
+            
         </tbody>  
       </table>  
 </div>
