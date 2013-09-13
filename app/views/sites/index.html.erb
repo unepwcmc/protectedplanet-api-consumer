@@ -5,30 +5,24 @@
    <%= text_field_tag "codigo", "", :size => 20, :maxlenght => 20, :placeholder => "Introduce a place to search", :required => "required" %>
    <br />
    <%= submit_tag "Search", class: "btn btn-small btn-primary" %>
-
 <% end %>
-
-<% if false %>
-<% @search_results.each do |result| %>
-  <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %>
-  
- <% end %>
- <% end %>
 </div>
 
 <div id= "table-results">
- <table class="table table-striped" align="center">  
-        <thead>  
-          <tr>  
-            <%-# <th>Protected Area</th> -%> 
-            <%-# <th>Rating</th> -%>
-              
-          </tr>  
-        </thead>  
-        <tbody> 
-        <% @search_results.each do |result| %> 
-          <tr>            
-            <td> <%= link_to(result["official"]["NAME"], "http://protectedplanet.net/sites/#{result["official"]["WDPAID"]}") %></td> 
+ <table align="center">  
+    <thead>  
+      <tr>  
+        <%-# <th>Protected Area</th> -%> 
+        <%-# <th>Rating</th> -%>
+      </tr>  
+    </thead>  
+    <tbody> 
+      <% @search_results.each do |result| %> 
+        <tr>            
+          <td> 
+            <%= link_to result["official"]["NAME"], :controller => "sites", :action => "show", id: result["official"]["WDPAID"] %>
+          </td> 
+            
           <% if false %>
             <td>
               <div class="ec-stars-wrapper">
@@ -40,8 +34,9 @@
               </div>
             </td>
           <% end %>  
-        <% end %>  
-          </tr>  
-        </tbody>  
-      </table>  
+        </tr>
+      <% end %>  
+            
+    </tbody>  
+  </table>  
 </div>

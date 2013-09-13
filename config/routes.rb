@@ -1,7 +1,10 @@
 Webpage::Application.routes.draw do
   root "sites#index"
   get "sites/index"
+  #resources "sites"
   
+  #root  / {:controller=>"sites", :action=>"index"}
+  get 'sites/show' => 'sites#show', :as => :show
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

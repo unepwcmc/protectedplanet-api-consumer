@@ -6,7 +6,7 @@ class SitesController < ApplicationController
   def index
 
     if params[:codigo].present?
-    response = HTTParty.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:codigo]}&sensor=false")
+    response = HTTParty.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{CGI.escape(params[:codigo])}&sensor=false")
     @response_body = response
     results = response["results"].first
     geometry = results["geometry"]
@@ -18,6 +18,13 @@ class SitesController < ApplicationController
     else
      @search_results = []
     end
+  end
+
+  def show
+    @id = params[:id]
+    site = PPApi.get_site(@id)
+    @name = site["official"]["NAME"]
+    @url = "http://protectedplanet.net/sites/#{@id}"
   end
 end
 

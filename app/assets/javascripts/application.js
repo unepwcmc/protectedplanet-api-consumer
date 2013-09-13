@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
@@ -21,4 +22,9 @@
           e.style.display = 'none';
        else
           e.style.display = 'block';
+
+      $(document).ready(function() {
+  		$("a.iframe").fancybox();
+		});
+      
     
