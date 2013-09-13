@@ -5,33 +5,23 @@
    <%= text_field_tag "codigo", "", :size => 20, :maxlenght => 20, :placeholder => "Introduce a place to search", :required => "required" %>
    <br />
    <%= submit_tag "Search", class: "btn btn-small btn-primary" %>
-
 <% end %>
-
-<%# if false %>
-<%# @search_results.each do |result| %>
-  <%#= link_to result["official"]["NAME"],:controller => "sites", :action => "show",url: "http://en.wikipedia.org/wiki/#{result["official"]["NAME"]}" %>
-  
- <%# end %>
-<%# end %>
 </div>
 
 <div id= "table-results">
- <table class="table table-striped" align="center">  
-        <thead>  
-          <tr>  
-            <%-# <th>Protected Area</th> -%> 
-            <%-# <th>Rating</th> -%>
-              
-          </tr>  
-        </thead>  
-        <tbody> 
-        <% @search_results.each do |result| %> 
-          <tr>            
-            <td> 
-            <%= link_to result["official"]["NAME"], :controller => "sites", :action => "show",url: "http://en.wikipedia.org/wiki/#{result["official"]["NAME"]}" %>
-            
-            </td> 
+ <table align="center">  
+    <thead>  
+      <tr>  
+        <%-# <th>Protected Area</th> -%> 
+        <%-# <th>Rating</th> -%>
+      </tr>  
+    </thead>  
+    <tbody> 
+      <% @search_results.each do |result| %> 
+        <tr>            
+          <td> 
+            <%= link_to result["official"]["NAME"], :controller => "sites", :action => "show", id: result["official"]["WDPAID"] %>
+          </td> 
             
           <% if false %>
             <td>
@@ -43,10 +33,10 @@
                 <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
               </div>
             </td>
-          </tr>
           <% end %>  
-        <% end %>  
+        </tr>
+      <% end %>  
             
-        </tbody>  
-      </table>  
+    </tbody>  
+  </table>  
 </div>
