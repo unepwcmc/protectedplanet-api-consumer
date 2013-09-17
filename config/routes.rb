@@ -1,6 +1,7 @@
 Webpage::Application.routes.draw do
   root "sites#index"
   get "sites/index"
+  resources :comments, only: [:index, :new, :create]
   #resources "sites"
   
   #root  / {:controller=>"sites", :action=>"index"}
