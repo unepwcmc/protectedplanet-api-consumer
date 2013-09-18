@@ -1,4 +1,6 @@
 Webpage::Application.routes.draw do
+  resources :reviews
+
   root "sites#index"
   get "sites/index"
   #resources "sites"
