@@ -1,15 +1,3 @@
 class Comment < ActiveRecord::Base
-
-def index
-
-end
-
-def new
-
-end
-
-def create
-
-end
-
+  belongs_to :site
 end
