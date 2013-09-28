@@ -25,6 +25,7 @@ class SitesController < ApplicationController
     site = PPApi.get_site(@id)
     @name = site["official"]["NAME"]
     @url = "http://protectedplanet.net/sites/#{@id}"
+    @comment = Comment.new( :site => site)
   end
 end
 
