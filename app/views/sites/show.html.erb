@@ -1,7 +1,11 @@
 <div id="toolbar" />
 <%= @name%>
- <hr />
-<% form_for @comment do|f| %>
+ 
+
+<iframe src="<%= @url %>" width="100%" height="300"> </iframe>
+
+ 
+<%= form_for @comment do|f| %>
   <p>
   <%= f.text_field :review %>
   </p>
@@ -10,10 +14,7 @@
     <%= f.submit "Post Comment" %>
   </p>
 <% end %>
+
 <%= render :partial => 'comment', :collection => @site.comments %>
 
-<iframe src="<%= @url %>" width="100%" height="300"/>
-<%-# render :partial => 'reviews/form', :collection => @reviews.review -%>
-
-<h1>Comments are coming soon!</h1>
 
