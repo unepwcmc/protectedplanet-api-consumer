@@ -16,6 +16,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery-star-rating
+
 
        var e = document.getElementById("table-results");
        if(e.style.display == 'block')
