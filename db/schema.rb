@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130918191409) do
+ActiveRecord::Schema.define(version: 20131101173741) do
 
   create_table "comments", force: true do |t|
     t.string   "wdpa_id"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20130918191409) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_id"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "value"
+    t.string   "voter_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sites", force: true do |t|
