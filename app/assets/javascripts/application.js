@@ -11,22 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require fancybox
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require jquery-star-rating
-
-
-       var e = document.getElementById("table-results");
-       if(e.style.display == 'block')
-          e.style.display = 'none';
-       else
-          e.style.display = 'block';
-
-      $(document).ready(function() {
-  		$("a.iframe").fancybox();
-		});
-      
-    

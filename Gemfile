@@ -2,14 +2,11 @@ source 'https://rubygems.org'
 
 
 gem 'httparty'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.0.1.0.rc'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-gem 'jquery-rails'
-gem 'fancybox-rails'
-gem 'jquery-star-rating-rails'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem "sqlite3"

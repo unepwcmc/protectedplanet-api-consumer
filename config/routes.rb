@@ -1,11 +1,9 @@
 Webpage::Application.routes.draw do
-  root "sites#index"
-  get "sites/index"
-  resources :comments, only: [:index, :new, :create]
-  #resources "sites"
-  
-  #root  / {:controller=>"sites", :action=>"index"}
-  get 'sites/show' => 'sites#show', :as => :show
+  root 'sites#index'
+  get  'search'    => 'sites#index' , as: :search
+  post 'search'    => 'sites#search', as: :search_form
+  get  'sites/:id' => 'sites#show'  , as: :sites_view
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -46,7 +44,7 @@ Webpage::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

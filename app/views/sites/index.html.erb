@@ -1,42 +1,36 @@
-
-<div class="center hero-unit">
-<%= form_tag({:controller => "sites", :action => "index"}, :method => "get") do %>
-   <%= label_tag "Lugar", "Discover the most amazing protected areas!" %>
-   <%= text_field_tag "codigo", "", :size => 20, :maxlenght => 20, :placeholder => "Introduce a place to search", :required => "required" %>
-   <br />
-   <%= submit_tag "Search", class: "btn btn-small btn-primary" %>
-<% end %>
+<div class="row search-form">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <h3>Discover the most amazing protected areas!</h3>
+      </div>
+    </div>
+    <%= form_tag(search_form_path, class: "form-inline", role: "form") do %>
+      <div class="col-md-10 form-group">
+        <input type="text" class="form-control" name="codigo" placeholder="Type a place to search" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    <% end %>
+  </div>
 </div>
-
-<div id= "table-results">
- <table align="center">  
-    <thead>  
-      <tr>  
-        <%-# <th>Protected Area</th> -%> 
-        <%-# <th>Rating</th> -%>
-      </tr>  
-    </thead>  
-    <tbody> 
-      <% @search_results.each do |result| %> 
-        <tr>            
-          <td> 
-            <%= link_to result["official"]["NAME"], :controller => "sites", :action => "show", id: result["official"]["WDPAID"] %>
-          </td> 
-            
-          <% if false %>
-            <td>
-              <div class="ec-stars-wrapper">
-                <a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-                <a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-                <a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-                <a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-                <a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
-              </div>
-            </td>
-          <% end %>  
-        </tr>
-      <% end %>  
-            
-    </tbody>  
-  </table>  
+<div class="row">
+  <% if @search_results.any? %>
+    <div class="col-md-4 search-results">
+      <h3>Results:</h3>
+      <ul class="list-group">
+        <% @search_results.each do |result| %>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-home"></span>
+            <%= link_to result["official"]["NAME"], sites_view_path, id: result["official"]["WDPAID"] %> </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @search_results.any? %>
+    <div class="col-md-8">
+  <% else %>
+    <div class="col-md-12">
+  <% end %>
+        <div id="map-canvas"></div>
+    </div>
 </div>

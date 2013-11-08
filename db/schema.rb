@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20131101173741) do
 
   create_table "comments", force: true do |t|
-    t.string   "wdpa_id"
+    t.string   "commenter"
     t.text     "review"
+    t.integer  "rating_value"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "site_id"
