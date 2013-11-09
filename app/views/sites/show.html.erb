@@ -1,41 +1,6 @@
 <div id="toolbar">
 <%= @name%>
-
 </div>
 
 
 <iframe src="<%= @url %>" width="100%" height="300" > </iframe>
-
-<form name="api-select">
-<input type="radio" class="star" name="." value="1"/>
-<input type="radio" class="star" name="." value="2"/>
-<input type="radio" class="star" name="." value="3"/>
-<input type="radio" class="star" name="." value="4"/>
-<input type="radio" class="star" name="." value="5"/> 
-<input type="button" value="Rate" onClick="mostrarvalores();"/>
-</form>
-<p><tt id="results"></tt></p>
-
-<script type="text/javascript">
-function mostrarvalores()
-{var s = $("input[type='radio']").serialize().slice(2);
- $("#results").text( s );
- s= '<%= @rating_v %>';
-}
-</script>
-
-
-
- 
-<%= form_for @comment do|f| %>
- <%= text_area :review, :id => "review_ppa", :cols => 200, :rows => 10 %> <br />
-  
- 
-  <p>
-    <%= f.submit "Post Comment" %>
-  </p>
-<% end %>
-
-<%= render :partial => 'comment', :collection => @site.comments %>
-
-

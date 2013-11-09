@@ -16,12 +16,12 @@
 <div class="row">
   <% if @search_results.any? %>
     <div class="col-md-4 search-results">
-      <h3>Results:</h3>
+      <h3>Protected Areas:</h3>
       <ul class="list-group">
         <% @search_results.each do |result| %>
           <li class="list-group-item">
             <span class="glyphicon glyphicon-home"></span>
-            <%= link_to result["official"]["NAME"], sites_view_path, id: result["official"]["WDPAID"] %> </li>
+            <%= link_to result["official"]["NAME"], sites_view_path(id: result["official"]["WDPAID"]) %> </li>
         <% end %>
       </ul>
     </div>
@@ -34,3 +34,22 @@
         <div id="map-canvas"></div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+  setTimeout(function(){
+    <% @search_results.each do |result| %>
+      <% geom = result["official"]["GEOM"].split(",").first
+          lat = geom.match(/\(\(\((.*) (.*)/)[2]
+          lon = geom.match(/\(\(\((.*) (.*)/)[1]
+      %>
+
+      new google.maps.Marker({
+        position: new google.maps.LatLng(<%= lat %>,<%= lon %>),
+        map: map,
+        title: '<%= result["official"]["NAME"] %>'
+      });
+    <% end %>
+  }, 1000);
+
+</script>
