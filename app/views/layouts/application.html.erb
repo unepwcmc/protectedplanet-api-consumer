@@ -5,31 +5,32 @@
     <title><%= content_for?(:title) ? yield(:title) : "A break to breath" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div class="container">
-    <div class="navbar">
-        <div class="navbar-inner">
-         <a class="brand" href="#">WCMC API-C</a>
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <%= link_to "WCMC API-C", root_path, class: "navbar-brand" %>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <%= render 'layouts/navigation' %>
         </div>
-    </div>
-    </div>
-    <main role="main">
-      <div class="container pagination-centered">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
+      </nav>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
         </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
