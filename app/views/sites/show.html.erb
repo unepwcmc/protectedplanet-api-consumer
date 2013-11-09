@@ -1,6 +1,10 @@
-<div id="toolbar">
-<%= @name%>
-</div>
+<h2><%= @name%></h2>
 
-
-<iframe src="<%= @url %>" width="100%" height="300" > </iframe>
+<script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
+<div id="div_list_ex"></div>
+<script type="text/javascript">
+  var birds = {'tag': '<%= @name%>'};
+  var list_ex_options = {'width': 300, 'height': 300, 'columns': 1};
+  var list_ex_widget = new panoramio.PhotoListWidget('div_list_ex', birds, list_ex_options);
+  list_ex_widget.setPosition(0);
+</script>

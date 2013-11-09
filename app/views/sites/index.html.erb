@@ -38,18 +38,28 @@
 
 <script type="text/javascript">
   setTimeout(function(){
+    var bounds = new google.maps.LatLngBounds();
+    var markersArray = [];
     <% @search_results.each do |result| %>
       <% geom = result["official"]["GEOM"].split(",").first
           lat = geom.match(/\(\(\((.*) (.*)/)[2]
           lon = geom.match(/\(\(\((.*) (.*)/)[1]
       %>
 
-      new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: new google.maps.LatLng(<%= lat %>,<%= lon %>),
         map: map,
         title: '<%= result["official"]["NAME"] %>'
       });
+
+      markersArray.push(marker);
     <% end %>
+
+    for (var i=0; i < markersArray.length; i++) {
+        bounds.extend(markersArray[i].getPosition());
+    }
+    map.fitBounds(bounds);
+
   }, 1000);
 
 </script>
