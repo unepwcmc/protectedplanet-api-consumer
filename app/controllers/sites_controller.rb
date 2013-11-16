@@ -2,6 +2,7 @@ class SitesController < ApplicationController
   require 'httparty'
   require 'json'
   require 'PPApi'
+  require 'wikipedia'
 
   def index
     @search_results = []
@@ -25,6 +26,8 @@ class SitesController < ApplicationController
   def show
     id = params[:id]
     @site = PPApi.get_site(id)
+    @page = Wikipedia.find(@site["official"]["NAME"])
+    
   end
 end
 

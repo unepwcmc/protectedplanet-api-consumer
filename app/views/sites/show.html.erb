@@ -35,13 +35,18 @@
 </div>
 
 
-
-
-
-
 <div class="row">
 	<div class="col-md-6" >
-		<h1>wikipedia</h1>
+	<%if @page %>
+		<h1><%= @page.title %></h1>
+		<% if @page.image_urls.any? %>
+			<% @page.image_urls.each do |img_url| %>
+				<%= link_to image_tag(img_url, width: 100), img_url %>
+			<% end %>
+		<% end %>
+		<p><%= @page.content %></p>
+		
+	<% end %>
 	</div>
 	<div class="col-md-6" >
 		<div id="disqus_thread"></div>

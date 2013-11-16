@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'httparty'
 gem 'bootstrap-sass', '~> 3.0.1.0.rc'
-
+gem 'wikipedia-client'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
