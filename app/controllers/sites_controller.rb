@@ -23,12 +23,8 @@ class SitesController < ApplicationController
   end
 
   def show
-    @id = params[:id]
-    site = PPApi.get_site(@id)
-    @name = site["official"]["NAME"]
-    @url = "http://protectedplanet.net/sites/#{@id}"
-    @site =  Site.new(id: params[:id])
-    @comment = Comment.new
+    id = params[:id]
+    @site = PPApi.get_site(id)
   end
 end
 
