@@ -1,21 +1,21 @@
 <div class="row">
-	<div class="col-md-12" >
+	<div class="col-md-11 col-md-offset-1" >
 		<h2><%= @site["official"]["NAME"] %></h2>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-6" >
+	<div class="col-md-7 col-md-offset-1" >
 		<script type="text/javascript" src="http://www.panoramio.com/wapi/wapi.js?v=1"></script>
-		<div id="div_list_ex"></div>
+		<div id="photowall"></div>
 		<script type="text/javascript">
 		var birds = {'tag': '<%= @name%>'};
-		var list_ex_options = {'width': 300, 'height': 300, 'columns': 1};
-		var list_ex_widget = new panoramio.PhotoListWidget('div_list_ex', birds, list_ex_options);
-		list_ex_widget.setPosition(0);
+		var list_options = {'width': 600, 'height': 400};
+		var widget = new panoramio.PhotoWidget('photowall', birds, list_options);
+		widget.setPosition(0);
 		</script>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-4">
 		<table class="table table-striped table-bordered">
 			<tr>
 				<td>Original Name:<br><%= @site["official"]["ORIG_NAME"] %></td>
@@ -33,22 +33,12 @@
 		</table>
 	</div>
 </div>
-
+<br/>
+<br/>
 
 <div class="row">
-	<div class="col-md-6" >
-	<%if @page %>
-		<h1><%= @page.title %></h1>
-		<% if @page.image_urls.any? %>
-			<% @page.image_urls.each do |img_url| %>
-				<%= link_to image_tag(img_url, width: 100), img_url %>
-			<% end %>
-		<% end %>
-		<p><%= @page.content %></p>
-		
-	<% end %>
-	</div>
-	<div class="col-md-6" >
+	
+	<div class="col-md-7 col-md-offset-1" >
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
 		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -64,4 +54,17 @@
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
+
+    <!--<div class="col-md-4" >
+	<%if @page %>
+		<h1><%= @page.title %></h1>
+		<% if @page.image_urls.any? %>
+			<% @page.image_urls.each do |img_url| %>
+				<%= link_to image_tag(img_url, width: 100), img_url %>
+			<% end %>
+		<% end %>
+		<p><%= @page.content %></p>
+		
+	<% end %>
+	</div>-->
 </div>
